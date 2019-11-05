@@ -81,9 +81,18 @@ public class JobData {
 
             String aValue = row.get(column);
 
+
+
             if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
+/*
+            if (Pattern.compile(Pattern.quote(value), Pattern.CASE_INSENSITIVE).matcher(aValue).find()) {
+                jobs.add(row);
+            }
+*/
+
+
         }
 
         return jobs;

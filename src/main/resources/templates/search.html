@@ -26,6 +26,8 @@
 
         </p>
 
+
+
         <p>
             <label for="searchTerm">Keyword:</label>
             <input type="text" name="searchTerm" id="searchTerm" />
@@ -37,6 +39,68 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+<!--<div th:replace = "fragments :: showJobsTable"></div>-->
+
+
+    <div>
+
+        <table class="job-listing" th:each="eachJob : ${jobSearchResults}">
+            <tr th:each="theKey : ${eachJob.keySet()}">
+                <td th:text="${theKey}"></td>
+                <td th:text="${eachJob.get(theKey)}"></td>
+                <!--        <td th:text="${eachJob.value}">Listed Job</td>-->
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <table th:fragment="job-listing" class="job-listing" th:each="eachJob: ${jobSearchResults}">-->
+<!--        <tr th:each="eachJob : ${jobSearchResults}" th:switch="${eachJob.key}">-->
+<!--            <td th:text="${#strings.capitalizeWords(eachJob.key)}"></td>-->
+<!--            <td th:case="'name'" th:text="${eachJob.value}"></td>-->
+<!--            <td th:case="*"><a th:href="@{/list/jobs(columns=${eachJob.key},value=${eachJob.value})}" th:text="${eachJob.value}"></a></td>-->
+<!--            &lt;!&ndash;            <td th:text="${eachJob}">Listed Job</td>&ndash;&gt;-->
+<!--            &lt;!&ndash;        <td th:text="${eachJob.value}">Listed Job</td>&ndash;&gt;-->
+<!--        </tr>-->
+<!--    </table>-->
+
+
+
+<!--    <table th:fragment="job-listing" class="job-listing" th:each="job: ${someJobs}">-->
+<!--        <tr th:each="mapEntry: ${job}" th:switch="${mapEntry.key}">-->
+<!--            <td th:text="${#strings.capitalizeWords(mapEntry.key)}"></td>-->
+<!--            <td th:case="'name'" th:text="${mapEntry.value}"></td>-->
+<!--            <td th:case="*"><a th:href="@{/list/jobs(column=${mapEntry.key},value=${mapEntry.value})}" th:text="${mapEntry.value}"></a></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+
+
+<!--    <tr th:each="eachJob : ${jobs}">-->
+<!--        <td th:text="${eachJob.key}">Key</td>-->
+<!--        <td th:text="${eachJob.value}">Value</td>-->
+<!--        </br>-->
+<!--    </tr>-->
 
 </div>
 
